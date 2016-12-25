@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="org.jumutang.zsh.dao.CustomerDaoI">
+	<resultMap id="BaseResultMap" type="org.jumutang.zsh.model.CustomerModel">
+		<id column="customer_id" property="customerId" jdbcType="VARCHAR"></id>
+		<result column="customer_name" property="customerName" jdbcType="VARCHAR"/>
+		<result column="customer_integral" property="customerIntegral" jdbcType="INTEGER"/>
+		<result column="customer_head" property="customerHead" jdbcType="VARCHAR"/>
+		<result column="customer_status" property="customerStatus" jdbcType="SMALLINT"/>
+		<result column="customer_phone" property="phone" jdbcType="VARCHAR"/>
+		<result column="customer_openId" property="customerOpenId" jdbcType="VARCHAR"/>
+		<result column="customer_type" property="customerType" jdbcType="INTEGER"/>
+		<result column="customer_address" property="customerAddress" jdbcType="VARCHAR"/>
+	</resultMap>
+	
+	<select id="queryByOpenId" parameterType="string" resultMap="BaseResultMap">
+		SELECT * FROM customer
+		<where>
+			customer_openId =#{id}
+		</where>
+	</select>
+</mapper>
+
+
+
